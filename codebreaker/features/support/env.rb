@@ -1,1 +1,3 @@
-# This is a file so Cucumber knows we're using Ruby
+# Cucumber loads this file so it knows we're using Ruby & it loads the needed lib files
+$LOAD_PATH << File.expand_path('../../../lib', __FILE__)
+require 'codebreaker'
