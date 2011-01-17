@@ -13,7 +13,6 @@ def output
 end
 
 Given /^I am not yet playing$/ do
-  
 end
 
 When /^I start a new game$/ do
@@ -22,5 +21,6 @@ When /^I start a new game$/ do
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
+	# output is a METHOD that returns @output / Output.new!! ohhhh
 	output.messages.should include(message)
 end

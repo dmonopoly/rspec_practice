@@ -1,6 +1,6 @@
 module Codebreaker
 	class Game
-		def initialize(output)
+		def initialize(output) # not sure why need this parameter...
 		end
 		
 		def start
