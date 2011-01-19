@@ -12,15 +12,31 @@ def output
 	@output ||= Output.new
 end
 
+# starts game stuff
 Given /^I am not yet playing$/ do
 end
 
 When /^I start a new game$/ do
 	game = Codebreaker::Game.new(output)
-	game.start
+	game.start '1234'
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
 	# output is a METHOD that returns @output / Output.new!! ohhhh
 	output.messages.should include(message)
 end
+
+# submits guess stuff
+Given /^the secret code is "([^"]*)"$/ do |secret|
+	@game = Codebreaker::Game.new(output)
+	@game.start(secret)
+end
+
+When /^I guess "([^"]*)"$/ do |guess|
+	@game.guess(guess)
+end
+
+Then /^the mark should be "([^"]*)"$/ do |mark|
+	output.messages.should include(mark)
+end
+
